@@ -1,5 +1,8 @@
 #Catálogo de Prestadores de Serviço em Tecnologia da Informação (TI)
-from Banco import Banco #ainda não fiz a parte do banco de dados
+from Banco import Banco #ainda não terminei a parte do banco do endereço
+from tkinter import *
+from tkinter import ttk
+
 
 class Prestador(object):
         def __init__(self, ID=0, nome="", CPF_CNPJ="", nascimento="", endereço="", contato=""):
