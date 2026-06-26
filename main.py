@@ -1,4 +1,4 @@
-from Usuarios import Usuarios
+from Banco import Banco
 from tkinter import *
 
 class Application:
