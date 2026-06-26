@@ -31,8 +31,26 @@ class Prestador(object):
                     return "Ocorreu um erro no cadastro do prestador"
 
         
-        def readPrestador(self):
-           banco = Banco();
+        def readPrestador(self, ID):
+                banco = Banco();
+                try:
+
+                    c = banco.conexao.cursor()
+        
+                    c.execute("select * from prestadores where ID = " + ID + "  ")
+        
+                    for linha in c:
+                        self.ID = linha[0]
+                        self.nome = linha[1]
+                        self.CPF_CNPJ = linha[2]
+                        self.nascimento = linha[3]
+                        self.endereço = linha[4]
+                        self.contato = linha[5]
+                    c.close()
+        
+                    return "Leitura feita com sucesso!"
+                except:
+                    return "Ocorreu um erro na leitura dos dados do prestador"
                 
         def updatePrestador(self):
                 banco = Banco();
@@ -53,5 +71,17 @@ class Prestador(object):
 
         
         def deletePrestador(self):
-           banco = Banco();
+                banco = Banco();
+                try:
+
+                    c = banco.conexao.cursor()
+        
+                    c.execute("delete from prestadores where ID = " + self.ID + " ")
+        
+                    banco.conexao.commit()
+                    c.close()
+
+                    return "Prestador excluido com sucesso!"
+                except:
+                    return "Ocorreu um erro na exclusão do prestador"
            
