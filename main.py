@@ -23,6 +23,18 @@ class Application:
         self.quintoContainer = Frame(master)
         self.quintoContainer["pady"] = 20
         self.quintoContainer.pack()
+
+        self.titulo = Label(self.primeiroContainer, text="Selecione a ação")
+        self.titulo["font"] = ("Arial", "10", "bold")
+        self.titulo.pack()
+
+
+        self.autenticar = Button(self.segundoContainer)
+        self.autenticar["text"] = "Consultar Prestador"
+        self.autenticar["font"] = ("Calibri", "8")
+        self.autenticar["width"] = 12
+        self.autenticar["command"] = self.verificaSenha
+        self.autenticar.pack()
 root = Tk()
 Application(root)
 root.mainloop()
