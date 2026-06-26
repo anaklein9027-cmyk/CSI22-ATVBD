@@ -1,5 +1,5 @@
 #Catálogo de Prestadores de Serviço em Tecnologia da Informação (TI)
-from Banco import Banco #ainda não terminei a parte do banco do endereço
+from Banco import Banco #ainda não terminei a parte do banco do endereço - acho que a parte do CEP vai precisar de outra função aqui
 from tkinter import *
 from tkinter import ttk
 
