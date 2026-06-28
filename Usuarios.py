@@ -60,4 +60,25 @@ class Usuarios(object):
 
                 return "Prestador excluido com sucesso!"
             except:
-                return "Ocorreu um erro na exclusão do prestador"
+                return "Ocorreu um erro na exclusão do prestador"        
+    def readPrestador(self, ID):
+                banco = Banco();
+                try:
+
+                    c = banco.conexao.cursor()
+        
+                    c.execute("select * from prestadores where ID = " + ID + "  ")
+        
+                    for linha in c:
+                        self.ID = linha[0]
+                        self.nome = linha[1]
+                        self.CPF_CNPJ = linha[2]
+                        self.nascimento = linha[3]
+                        self.endereço = linha[4]
+                        self.contato = linha[5]
+                    c.close()
+        
+                    return "Leitura feita com sucesso!"
+                except:
+                    raise
+                    return "Ocorreu um erro na leitura dos dados do prestador"
