@@ -6,7 +6,7 @@ class Usuarios(object):
     def __init__(self, idusuario = 0, nome = "", telefone = 0, email = "", usuario = "", senha = ""):
         self.idusuario = idusuario
         self.nome = nome
-        self.telefone = telefone
+        self.CPF_CNPJ = CPF_CNPJ
         self.email = email
         self.usuario = usuario
         self.senha = senha
@@ -18,7 +18,7 @@ class Usuarios(object):
                 c = banco.conexao.cursor()
     
                 c.execute("insert into prestadores (ID, nome, CPF_CNPJ, nascimento, endereço, contato) values('" + str(self.idusuario) + "', '" +
-                            self.nome + "', '" + self.telefone + "', '" + self.email + "','" + self.usuario + "','" + self.senha + "')")
+                            self.nome + "', '" + self.CPF_CNPJ + "', '" + self.email + "','" + self.usuario + "','" + self.senha + "')")
                 
                 #c.execute(f"insert into prestadores (ID, nome, CPF_CNPJ, nascimento, endereço, contato) values({self.idusuario},{self.nome},{self.telefone},{self.email},{self.usuario},{self.senha})")
     
@@ -37,7 +37,7 @@ class Usuarios(object):
                 c = banco.conexao.cursor()
     
                 c.execute("update prestadores set nome = '" + self.nome +
-                            "', CPF_CNPJ = '" + self.telefone + "', nascimento = '" + self.email + "', endereço = '" + self.usuario + "', contato = '" + self.senha + "' where ID = " + str(self.idusuario) + " ")
+                            "', CPF_CNPJ = '" + self.CPF_CNPJ + "', nascimento = '" + self.email + "', endereço = '" + self.usuario + "', contato = '" + self.senha + "' where ID = " + str(self.idusuario) + " ")
                         #não sei se devo fazer a alterção ser por uma busca de ID Ou de nome - talvez nome faça mais sentido
                 banco.conexao.commit()
                 c.close()
