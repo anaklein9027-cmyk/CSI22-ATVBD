@@ -18,11 +18,11 @@ class Application:
         self.container3["padx"] = 20
         self.container3["pady"] = 5
         self.container3.pack()
-        self.container4 = Frame(master) # Telefone
+        self.container4 = Frame(master) # CPF ou CNPJ
         self.container4["padx"] = 20
         self.container4["pady"] = 5
         self.container4.pack()
-        self.container5 = Frame(master) # CPF ou CNPJ
+        self.container5 = Frame(master) 
         self.container5["padx"] = 20
         self.container5["pady"] = 5
         self.container5.pack()
@@ -69,14 +69,14 @@ class Application:
         self.txtnome["font"] = self.fonte
         self.txtnome.pack(side=LEFT)
 
-        self.lbltelefone = Label(self.container4, text="Telefone:",
+        self.lblCPF_CNPJ = Label(self.container4, text="CPF ou CNPJ:",
         font=self.fonte, width=10)
-        self.lbltelefone.pack(side=LEFT)
+        self.lblCPF_CNPJ.pack(side=LEFT)
 
-        self.txttelefone = Entry(self.container4)
-        self.txttelefone["width"] = 25
-        self.txttelefone["font"] = self.fonte
-        self.txttelefone.pack(side=LEFT)
+        self.txtCPF_CNPJ = Entry(self.container4)
+        self.txtCPF_CNPJ["width"] = 25
+        self.txtCPF_CNPJ["font"] = self.fonte
+        self.txtCPF_CNPJ.pack(side=LEFT)
 
         self.lblCPF_CNPJ= Label(self.container5, text="CPF ou CNPJ:",
         font=self.fonte, width=10)
@@ -87,7 +87,7 @@ class Application:
         self.txtemail["font"] = self.fonte
         self.txtemail.pack(side=LEFT)
 
-        self.lblusuario= Label(self.container6, text="Usuário:",
+        self.lblusuario= Label(self.container6, text="Nascimento:",
         font=self.fonte, width=10)
         self.lblusuario.pack(side=LEFT)
 
@@ -134,7 +134,7 @@ class Application:
         self.contador_id += 1
 
         user.nome = self.txtnome.get()
-        user.telefone = self.txttelefone.get()
+        user.CPF_CNPJ = self.txtCPF_CNPJ.get()
         user.email = self.txtemail.get()
         user.usuario = self.txtusuario.get()
         user.senha = self.txtsenha.get()
@@ -143,7 +143,7 @@ class Application:
 
         self.txtidusuario.delete(0, END)
         self.txtnome.delete(0, END)
-        self.txttelefone.delete(0, END)
+        self.txtCPF_CNPJ.delete(0, END)
         self.txtemail.delete(0, END)
         self.txtusuario.delete(0, END)
         self.txtsenha.delete(0, END)
@@ -155,7 +155,7 @@ class Application:
 
         user.idusuario = self.txtidusuario.get()
         user.nome = self.txtnome.get()
-        user.telefone = self.txttelefone.get()
+        user.CPF_CNPJ = self.txtCPF_CNPJ.get()
         user.email = self.txtemail.get()
         user.usuario = self.txtusuario.get()
         user.senha = self.txtsenha.get()
@@ -164,7 +164,7 @@ class Application:
 
         self.txtidusuario.delete(0, END)
         self.txtnome.delete(0, END)
-        self.txttelefone.delete(0, END)
+        self.txtCPF_CNPJ.delete(0, END)
         self.txtemail.delete(0, END)
         self.txtusuario.delete(0, END)
         self.txtsenha.delete(0, END)
@@ -180,7 +180,7 @@ class Application:
 
         self.txtidusuario.delete(0, END)
         self.txtnome.delete(0, END)
-        self.txttelefone.delete(0, END)
+        self.txtCPF_CNPJ.delete(0, END)
         self.txtemail.delete(0, END)
         self.txtusuario.delete(0, END)
         self.txtsenha.delete(0, END)
@@ -199,8 +199,8 @@ class Application:
         self.txtnome.delete(0, END)
         self.txtnome.insert(INSERT, user.CPF_CNPJ)
 
-        self.txttelefone.delete(0, END)
-        self.txttelefone.insert(INSERT,user.nascimento)
+        self.txtCPF_CNPJ.delete(0, END)
+        self.txtCPF_CNPJ.insert(INSERT,user.nascimento)
 
         self.txtemail.delete(0, END)
         self.txtemail.insert(INSERT, user.endereço)
