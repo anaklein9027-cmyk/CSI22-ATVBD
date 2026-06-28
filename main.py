@@ -197,20 +197,16 @@ class Application:
         self.txtidusuario.insert(INSERT, user.idusuario)
 
         self.txtnome.delete(0, END)
-        self.txtnome.insert(INSERT, user.nome)
+        self.txtnome.insert(INSERT, user.CPF_CNPJ)
 
         self.txttelefone.delete(0, END)
-        self.txttelefone.insert(INSERT,user.telefone)
+        self.txttelefone.insert(INSERT,user.nascimento)
 
         self.txtemail.delete(0, END)
-        self.txtemail.insert(INSERT, user.email)
+        self.txtemail.insert(INSERT, user.endereço)
 
         self.txtusuario.delete(0, END)
-        self.txtusuario.insert(INSERT, user.usuario)
-
-        self.txtsenha.delete(0, END)
-        self.txtsenha.insert(INSERT,user.senha)
-
+        self.txtusuario.insert(INSERT, user.contato)
 
 root = Tk()
 Application(root)
