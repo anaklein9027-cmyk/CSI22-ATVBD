@@ -1,7 +1,8 @@
 from Banco import Banco
 from tkinter import *
+from ATVCSI22 import Prestador
 
-class Application:
+class Application(Prestador):
 def __init__(self, master=None):
     self.fonte = ("Verdana", "8")
 
