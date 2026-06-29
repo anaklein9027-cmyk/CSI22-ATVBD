@@ -19,7 +19,7 @@ class Usuarios(object):
 
                 c = banco.conexao.cursor()
     
-                c.execute("insert into prestadores (ID, nome, CPF_CNPJ, nascimento, CEP, Endereço, contato) values('" + str(self.idusuario) + "', '" +
+                c.execute("insert into prestadores (nome, CPF_CNPJ, nascimento, CEP, Endereço, contato) values('" +
                             self.nome + "', '" + str(self.CPF_CNPJ) + "', '" + str(self.nascimento) + "','" + str(self.CEP) + "','" + self.Endereco + "','" + str(self.contato) + "')")
                 
                 #c.execute(f"insert into prestadores (ID, nome, CPF_CNPJ, nascimento, endereço, contato) values({self.idusuario},{self.nome},{self.telefone},{self.email},{self.usuario},{self.senha})")
@@ -63,24 +63,4 @@ class Usuarios(object):
                 return "Prestador excluido com sucesso!"
             except:
                 return "Ocorreu um erro na exclusão do prestador"        
-    def selectUser(self, ID):
-                    banco = Banco();
-                    try:
     
-                        c = banco.conexao.cursor()
-            
-                        c.execute("select * from prestadores where ID = " + ID + "  ")
-            
-                        for linha in c:
-                            self.idusuario = linha[0]
-                            self.nome = linha[1]
-                            self.CPF_CNPJ = linha[2]
-                            self.nascimento = linha[3]
-                            self.endereço = linha[4]
-                            self.contato = linha[5]
-                        c.close()
-    
-                        return "Leitura feita com sucesso!"
-                    except:
-                        raise
-                        return "Ocorreu um erro na leitura dos dados do prestador"
