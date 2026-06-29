@@ -30,7 +30,7 @@ class Application:
         self.container6["padx"] = 20
         self.container6["pady"] = 5
         self.container6.pack()
-        self.container7 = Frame(master) # Senha
+        self.container7 = Frame(master) # Contato
         self.container7["padx"] = 20
         self.container7["pady"] = 5
         self.container7.pack()
