@@ -48,6 +48,13 @@ class Application:
         self.container10["pady"] = 15
         self.container10.pack()
 
+        self.container11 = Frame(master) # Listagem
+        self.container11["pady"] = 15
+        self.container11.pack()
+        self.container12 = Frame(master) # Listagem
+        self.container12["pady"] = 15
+        self.container12.pack()
+
         self.titulo = Label(self.container1, text="Informe os dados :")
         self.titulo["font"] = ("Calibri", "9", "bold")
         self.titulo.pack ()
@@ -60,11 +67,6 @@ class Application:
         self.txtidusuario["width"] = 10
         self.txtidusuario["font"] = self.fonte
         self.txtidusuario.pack(side=LEFT)
-
-        self.btnBuscar = Button(self.container2, text="Buscar",
-        font=self.fonte, width=10)
-        self.btnBuscar["command"] = self.buscarUsuario
-        self.btnBuscar.pack(side=RIGHT)
 
         self.lblnome = Label(self.container3, text="Nome:",
         font=self.fonte, width=10)
@@ -118,7 +120,6 @@ class Application:
 
         self.txtcontato = Entry(self.container8)
         self.txtcontato["width"] = 25
-        self.txtcontato["show"] = "*"
         self.txtcontato["font"] = self.fonte
         self.txtcontato.pack(side=LEFT)
 
@@ -141,6 +142,14 @@ class Application:
         self.lblmsg["font"] = ("Verdana", "9", "italic")
         self.lblmsg.pack()
 
+        self.btnListar = Button(self.container11, text="Listar Prestadores",
+        font=self.fonte, width=40)
+        self.btnListar["command"] = self.listar
+        self.btnListar.pack(side=LEFT)
+
+        self.lbllista = Label(self.container12, text="")
+        self.lbllista["font"] = ("Verdana", "9")
+        self.lbllista.pack()
 
     def inserirUsuario(self):
         user = Usuarios()
@@ -207,30 +216,26 @@ class Application:
         self.txtcontato.delete(0, END)
 
 
-    def buscarUsuario(self):
-        user = Usuarios()
+    def listar(self):
+        banco = Banco()
+        try:
+                 
+            c = banco.conexao.cursor()
 
-        idusuario = self.txtidusuario.get()
+            c.execute('''SELECT * FROM prestadores''')
 
-        self.lblmsg["text"] = user.selectUser(idusuario)
+            resultados = c.fetchall()
 
-        self.txtidusuario.delete(0, END)
-        self.txtidusuario.insert(INSERT, user.idusuario)
+            #print(resultados)
 
-        self.txtnome.delete(0, END)
-        self.txtnome.insert(INSERT, user.nome)
+            for res in resultados:
+                idd, nome, cpf_cnpj, nascimento, endereço, contato = res
+                print(f"Id: {idd}\nNome: {nome}\nCPF/CNPJ: {cpf_cnpj}\nNascimento: {nascimento}\nEndereço: {endereço}\nContato: {contato}\n")
+                self.lbllista["text"] = f"Id: {idd}\nNome: {nome}\nCPF/CNPJ: {cpf_cnpj}\nNascimento: {nascimento}\nEndereço: {endereço}\nContato: {contato}\n"
 
-        self.txtCPF_CNPJ.delete(0, END)
-        self.txtCPF_CNPJ.insert(INSERT,user.CPF_CNPJ)
-
-        self.txtnascimento.delete(0, END)
-        self.txtnascimento.insert(INSERT, user.nascimento)
-
-        self.txtendereço.delete(0, END)
-        self.txtendereço.insert(INSERT, user.endereço)
-
-        self.txtcontato.delete(0, END)
-        self.txtcontato.insert(INSERT, user.contato)
+        except:
+            raise
+            return "Erro!"
 
 
     def buscarEndereco(self):
