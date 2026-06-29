@@ -93,19 +93,19 @@ class Application:
         self.txtnascimento["font"] = self.fonte
         self.txtnascimento.pack(side=LEFT)
 
-        self.lblendereço= Label(self.container6, text="CEP:",
+        self.lblCEP= Label(self.container6, text="CEP:",
         font=self.fonte, width=10)
-        self.lblendereço.pack(side=LEFT)
+        self.lblCEP.pack(side=LEFT)
 
-        self.txtendereço = Entry(self.container6)
-        self.txtendereço["width"] = 25
-        self.txtendereço["font"] = self.fonte
-        self.txtendereço.pack(side=LEFT)
+        self.txtCEP = Entry(self.container6)
+        self.txtCEP["width"] = 25
+        self.txtCEP["font"] = self.fonte
+        self.txtCEP.pack(side=LEFT)
 
-        self.btnendereço = Button(self.container6, text="Buscar",
+        self.btnCEP = Button(self.container6, text="Buscar",
         font=self.fonte, width=10)
-        self.btnendereço["command"] = self.buscarEndereco
-        self.btnendereço.pack(side=RIGHT)
+        self.btnCEP["command"] = self.buscarEndereco
+        self.btnCEP.pack(side=RIGHT)
     #com o CEP retorna o endereço
         self.txtResultado = Entry(self.container7)
         self.txtResultado["width"] = 60
@@ -152,7 +152,8 @@ class Application:
         user.nome = self.txtnome.get()
         user.CPF_CNPJ = self.txtCPF_CNPJ.get()
         user.nascimento = self.txtnascimento.get()
-        user.endereço = self.txtendereço.get()
+        user.CEP = self.txtCEP.get()
+        user.endereço = self.txtResultado.get()
         user.contato = self.txtcontato.get()
 
         self.lblmsg["text"] = user.insertUser()
@@ -161,7 +162,8 @@ class Application:
         self.txtnome.delete(0, END)
         self.txtCPF_CNPJ.delete(0, END)
         self.txtnascimento.delete(0, END)
-        self.txtendereço.delete(0, END)
+        self.txtCEP.delete(0, END)
+        self.txtResultado.delete(0, END)
         self.txtcontato.delete(0, END)
 
 
@@ -173,7 +175,8 @@ class Application:
         user.nome = self.txtnome.get()
         user.CPF_CNPJ = self.txtCPF_CNPJ.get()
         user.nascimento = self.txtnascimento.get()
-        user.endereço = self.txtendereço.get()
+        user.CEP = self.txtCEP.get()
+        user.endereço = self.txtResultado.get()
         user.contato = self.txtcontato.get()
 
         self.lblmsg["text"] = user.updateUser()
@@ -182,7 +185,8 @@ class Application:
         self.txtnome.delete(0, END)
         self.txtCPF_CNPJ.delete(0, END)
         self.txtnascimento.delete(0, END)
-        self.txtendereço.delete(0, END)
+        self.txtCEP.delete(0, END)
+        self.txtResultado.delete(0, END)
         self.txtcontato.delete(0, END)
 
 
@@ -198,7 +202,8 @@ class Application:
         self.txtnome.delete(0, END)
         self.txtCPF_CNPJ.delete(0, END)
         self.txtnascimento.delete(0, END)
-        self.txtendereço.delete(0, END)
+        self.txtCEP.delete(0, END)
+        self.txtResultado.delete(0, END)
         self.txtcontato.delete(0, END)
 
 
