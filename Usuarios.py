@@ -3,13 +3,17 @@ from tkinter import *
 from tkinter import ttk
 
 class Usuarios(object):
-    def __init__(self, idusuario = 0, nome = "", CPF_CNPJ = 0, nascimento = "", endereço = "", contato = ""):
+    def __init__(self, idusuario = 0, nome = "", CPF_CNPJ = 0, nascimento = "", endereço = "", entEndereço = "", entBairro = "", entCidade = "", entUF = "", contato = ""):
         self.idusuario = idusuario
         self.nome = nome
         self.CPF_CNPJ = CPF_CNPJ
         self.nascimento = nascimento
-        self.endereço = endereço
+        self.CEP = endereço
         self.contato = contato
+        self.entEndereco = entEndereço
+        self.entBairro = entBairro
+        self.entCidade = entCidade
+        self.entUF = entUF
 
     def insertUser(self):
             banco = Banco();
@@ -17,8 +21,8 @@ class Usuarios(object):
 
                 c = banco.conexao.cursor()
     
-                c.execute("insert into prestadores (ID, nome, CPF_CNPJ, nascimento, endereço, contato) values('" + str(self.idusuario) + "', '" +
-                            self.nome + "', '" + str(self.CPF_CNPJ) + "', '" + str(self.nascimento) + "','" + self.endereço + "','" + self.contato + "')")
+                c.execute("insert into prestadores (ID, nome, CPF_CNPJ, nascimento, CEP, entEndereço, entBairro, entCidade, entUF, contato) values('" + str(self.idusuario) + "', '" +
+                            self.nome + "', '" + str(self.CPF_CNPJ) + "', '" + str(self.nascimento) + "','" + self.CEP + "','" + self.entEndereco + "','" +  self.entBairro + "','" + self.entCidade + "','" + self.entUF + "','" + self.contato + "')")
                 
                 #c.execute(f"insert into prestadores (ID, nome, CPF_CNPJ, nascimento, endereço, contato) values({self.idusuario},{self.nome},{self.telefone},{self.email},{self.usuario},{self.senha})")
     
@@ -37,7 +41,7 @@ class Usuarios(object):
                 c = banco.conexao.cursor()
     
                 c.execute("update prestadores set nome = '" + self.nome +
-                            "', CPF_CNPJ = '" + self.CPF_CNPJ + "', nascimento = '" + self.nascimento + "', endereço = '" + self.endereço + "', contato = '" + self.contato + "' where ID = " + str(self.idusuario) + " ")
+                            "', CPF_CNPJ = '" + self.CPF_CNPJ + "', nascimento = '" + self.nascimento + "', CEP = '" + self.CEP + "', Logradouro = '" + self.entEndereco + "', Bairro = '" +  self.entBairro + "', Cidade ='" + self.entCidade + "', UF ='" + self.entUF + "', contato = '" + self.contato + "' where ID = " + str(self.idusuario) + " ")
                         #não sei se devo fazer a alterção ser por uma busca de ID Ou de nome - talvez nome faça mais sentido
                 banco.conexao.commit()
                 c.close()
