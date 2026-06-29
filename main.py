@@ -69,7 +69,7 @@ class Application:
         self.txtidusuario.pack(side=LEFT)
 
         self.lblnome = Label(self.container3, text="Nome:",
-        font=self.fonte, width=10)
+        font =self.fonte, width=10)
         self.lblnome.pack(side=LEFT)
 
         self.txtnome = Entry(self.container3)
@@ -162,7 +162,7 @@ class Application:
         user.CPF_CNPJ = self.txtCPF_CNPJ.get()
         user.nascimento = self.txtnascimento.get()
         user.CEP = self.txtCEP.get()
-        user.endereço = self.txtResultado.get()
+        user.Endereco = self.txtResultado.get()
         user.contato = self.txtcontato.get()
 
         self.lblmsg["text"] = user.insertUser()
@@ -185,7 +185,7 @@ class Application:
         user.CPF_CNPJ = self.txtCPF_CNPJ.get()
         user.nascimento = self.txtnascimento.get()
         user.CEP = self.txtCEP.get()
-        user.endereço = self.txtResultado.get()
+        user.Endereco  = self.txtResultado.get()
         user.contato = self.txtcontato.get()
 
         self.lblmsg["text"] = user.updateUser()
@@ -229,9 +229,9 @@ class Application:
             #print(resultados)
 
             for res in resultados:
-                idd, nome, cpf_cnpj, nascimento, endereço, contato = res
-                print(f"Id: {idd}\nNome: {nome}\nCPF/CNPJ: {cpf_cnpj}\nNascimento: {nascimento}\nEndereço: {endereço}\nContato: {contato}\n")
-                self.lbllista["text"] = f"Id: {idd}\nNome: {nome}\nCPF/CNPJ: {cpf_cnpj}\nNascimento: {nascimento}\nEndereço: {endereço}\nContato: {contato}\n"
+                idd, nome, cpf_cnpj, nascimento, CEP, endereço, contato = res
+                print(f"Id: {idd}\nNome: {nome}\nCPF/CNPJ: {cpf_cnpj}\nNascimento: {nascimento}\nCEP: {CEP}, Endereço: {endereço}\nContato: {contato}\n")
+                self.lbllista["text"] = f"Id: {idd}\nNome: {nome}\nCPF/CNPJ: {cpf_cnpj}\nNascimento: {nascimento}\nCEP: {CEP},\n Endereço: {endereço}\nContato: {contato}\n"
 
         except:
             raise
