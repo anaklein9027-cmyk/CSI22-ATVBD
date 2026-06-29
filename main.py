@@ -107,7 +107,7 @@ class Application:
 
         self.txtcontato = Entry(self.container8)
         self.txtcontato["width"] = 25
-        self.txtcontato["show"] = "*"
+        #self.txtcontato["show"] = "*"
         self.txtcontato["font"] = self.fonte
         self.txtcontato.pack(side=LEFT)
 
