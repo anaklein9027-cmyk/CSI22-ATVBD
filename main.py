@@ -100,11 +100,11 @@ class Application:
         font=self.fonte, width=10)
         self.lblcontato.pack(side=LEFT)
 
-        self.txtsenha = Entry(self.container7)
-        self.txtsenha["width"] = 25
-        self.txtsenha["show"] = "*"
-        self.txtsenha["font"] = self.fonte
-        self.txtsenha.pack(side=LEFT)
+        self.txtcontato = Entry(self.container7)
+        self.txtcontato["width"] = 25
+        self.txtcontato["show"] = "*"
+        self.txtcontato["font"] = self.fonte
+        self.txtcontato.pack(side=LEFT)
 
         self.bntInsert = Button(self.container8, text="Inserir",
         font=self.fonte, width=12)
