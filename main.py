@@ -234,7 +234,7 @@ class Application:
 
 
     def buscarEndereco(self):
-        cep = self.txtendereço.get()
+        cep = self.txtCEP.get()
         url = f"https://viacep.com.br/ws/{cep}/json/"
         resposta = requests.get(url)
         if resposta.status_code != 200:
