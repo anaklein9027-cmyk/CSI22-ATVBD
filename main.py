@@ -1,6 +1,7 @@
 from Banco import Banco
 from tkinter import *
 from Usuarios import Usuarios
+import requests
 
 class Application:
     def __init__(self, master=None):
@@ -101,13 +102,23 @@ class Application:
         self.txtendereço["font"] = self.fonte
         self.txtendereço.pack(side=LEFT)
 
+        self.btnendereço = Button(self.container6, text="Buscar",
+        font=self.fonte, width=10)
+        self.btnendereço["command"] = self.buscarEndereco
+        self.btnendereço.pack(side=RIGHT)
+    #com o CEP retorna o endereço
+        self.txtResultado = Entry(self.container7)
+        self.txtResultado["width"] = 60
+        self.txtResultado["font"] = self.fonte
+        self.txtResultado.pack(side=LEFT)
+
         self.lblcontato= Label(self.container8, text="Contato:",
         font=self.fonte, width=10)
         self.lblcontato.pack(side=LEFT)
 
         self.txtcontato = Entry(self.container8)
         self.txtcontato["width"] = 25
-        #self.txtcontato["show"] = "*"
+        self.txtcontato["show"] = "*"
         self.txtcontato["font"] = self.fonte
         self.txtcontato.pack(side=LEFT)
 
@@ -216,6 +227,31 @@ class Application:
         self.txtcontato.delete(0, END)
         self.txtcontato.insert(INSERT, user.contato)
 
+
+    def buscarEndereco(self):
+        cep = self.txtendereço.get()
+        url = f"https://viacep.com.br/ws/{cep}/json/"
+        resposta = requests.get(url)
+        if resposta.status_code != 200:
+            return
+
+        dados = resposta.json()
+
+        if "erro" in dados:
+            return
+
+        endereco = (
+            f'{dados["logradouro"]} - '
+            f'{dados["bairro"]} - '
+            f'{dados["localidade"]}/{dados["uf"]}'
+        )
+
+        self.txtResultado.delete(0, END)
+        self.txtResultado.insert(0, endereco)
+
+
+
+    
 root = Tk()
 Application(root)
 root.title("Catálogo de TI")
