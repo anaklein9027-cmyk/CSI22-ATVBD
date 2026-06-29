@@ -18,7 +18,7 @@ class Usuarios(object):
                 c = banco.conexao.cursor()
     
                 c.execute("insert into prestadores (ID, nome, CPF_CNPJ, nascimento, endereço, contato) values('" + str(self.idusuario) + "', '" +
-                            self.nome + "', '" + self.CPF_CNPJ + "', '" + self.nascimento + "','" + self.endereço + "','" + self.contato + "')")
+                            self.nome + "', '" + str(self.CPF_CNPJ) + "', '" + str(self.nascimento) + "','" + self.endereço + "','" + self.contato + "')")
                 
                 #c.execute(f"insert into prestadores (ID, nome, CPF_CNPJ, nascimento, endereço, contato) values({self.idusuario},{self.nome},{self.telefone},{self.email},{self.usuario},{self.senha})")
     
