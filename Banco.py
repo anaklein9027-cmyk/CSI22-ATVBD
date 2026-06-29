@@ -14,8 +14,8 @@ class Banco():
                      nome text,
                      CPF_CNPJ integer,
                      nascimento text,
-                     CEP endereço, 
+                     CEP integer, 
                      Endereço text,
-                     contato integrer)""") #vou precisar criar uma classe endereço
+                     contato integrer)""") 
         self.conexao.commit()
         c.close()
