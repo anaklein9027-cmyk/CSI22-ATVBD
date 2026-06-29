@@ -30,17 +30,22 @@ class Application:
         self.container6["padx"] = 20
         self.container6["pady"] = 5
         self.container6.pack()
-        self.container7 = Frame(master) # Contato
+        self.container7 = Frame(master) # Endereço - CEP
         self.container7["padx"] = 20
         self.container7["pady"] = 5
         self.container7.pack()
-        self.container8 = Frame(master) # Inserir, Alterar, Excluir
+        
+        self.container8 = Frame(master) # Contato
         self.container8["padx"] = 20
-        self.container8["pady"] = 10
+        self.container8["pady"] = 5
         self.container8.pack()
-        self.container9 = Frame(master) # Espaçamento inferior
-        self.container9["pady"] = 15
+        self.container9 = Frame(master) # Inserir, Alterar, Excluir
+        self.container9["padx"] = 20
+        self.container9["pady"] = 10
         self.container9.pack()
+        self.container10 = Frame(master) # Espaçamento inferior
+        self.container10["pady"] = 15
+        self.container10.pack()
 
         self.titulo = Label(self.container1, text="Informe os dados :")
         self.titulo["font"] = ("Calibri", "9", "bold")
@@ -96,32 +101,32 @@ class Application:
         self.txtendereço["font"] = self.fonte
         self.txtendereço.pack(side=LEFT)
 
-        self.lblcontato= Label(self.container7, text="Contato:",
+        self.lblcontato= Label(self.container8, text="Contato:",
         font=self.fonte, width=10)
         self.lblcontato.pack(side=LEFT)
 
-        self.txtcontato = Entry(self.container7)
+        self.txtcontato = Entry(self.container8)
         self.txtcontato["width"] = 25
         self.txtcontato["show"] = "*"
         self.txtcontato["font"] = self.fonte
         self.txtcontato.pack(side=LEFT)
 
-        self.bntInsert = Button(self.container8, text="Inserir",
+        self.bntInsert = Button(self.container9, text="Inserir",
         font=self.fonte, width=12)
         self.bntInsert["command"] = self.inserirUsuario
         self.bntInsert.pack (side=LEFT)
 
-        self.bntAlterar = Button(self.container8, text="Alterar",
+        self.bntAlterar = Button(self.container9, text="Alterar",
         font=self.fonte, width=12)
         self.bntAlterar["command"] = self.alterarUsuario
         self.bntAlterar.pack (side=LEFT)
 
-        self.bntExcluir = Button(self.container8, text="Excluir",
+        self.bntExcluir = Button(self.container9, text="Excluir",
         font=self.fonte, width=12)
         self.bntExcluir["command"] = self.excluirUsuario
         self.bntExcluir.pack(side=LEFT)
 
-        self.lblmsg = Label(self.container9, text="")
+        self.lblmsg = Label(self.container10, text="")
         self.lblmsg["font"] = ("Verdana", "9", "italic")
         self.lblmsg.pack()
 
