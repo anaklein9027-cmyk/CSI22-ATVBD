@@ -3,7 +3,7 @@ from tkinter import *
 from tkinter import ttk
 
 class Usuarios(object):
-    def __init__(self, idusuario = 0, nome = "", telefone = 0, email = "", usuario = "", senha = ""):
+    def __init__(self, idusuario = 0, nome = "", CPF_CNPJ = 0, nascimento = "", endereço = "", contato = ""):
         self.idusuario = idusuario
         self.nome = nome
         self.CPF_CNPJ = CPF_CNPJ
