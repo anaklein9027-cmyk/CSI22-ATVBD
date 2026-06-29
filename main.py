@@ -26,7 +26,7 @@ class Application:
         self.container5["padx"] = 20
         self.container5["pady"] = 5
         self.container5.pack()
-        self.container6 = Frame(master) # Endereço
+        self.container6 = Frame(master) # Endereço - CEP
         self.container6["padx"] = 20
         self.container6["pady"] = 5
         self.container6.pack()
@@ -87,7 +87,7 @@ class Application:
         self.txtnascimento["font"] = self.fonte
         self.txtnascimento.pack(side=LEFT)
 
-        self.lblendereço= Label(self.container6, text="Endereço:",
+        self.lblendereço= Label(self.container6, text="CEP:",
         font=self.fonte, width=10)
         self.lblendereço.pack(side=LEFT)
 
