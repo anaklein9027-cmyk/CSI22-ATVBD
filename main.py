@@ -26,7 +26,7 @@ class Application:
         self.container5["padx"] = 20
         self.container5["pady"] = 5
         self.container5.pack()
-        self.container6 = Frame(master) # Usuario
+        self.container6 = Frame(master) # Endereço
         self.container6["padx"] = 20
         self.container6["pady"] = 5
         self.container6.pack()
@@ -87,18 +87,18 @@ class Application:
         self.txtnascimento["font"] = self.fonte
         self.txtnascimento.pack(side=LEFT)
 
-        self.lblusuario= Label(self.container6, text="Nascimento:",
+        self.lblendereço= Label(self.container6, text="Endereço:",
         font=self.fonte, width=10)
-        self.lblusuario.pack(side=LEFT)
+        self.lblendereço.pack(side=LEFT)
 
-        self.txtusuario = Entry(self.container6)
-        self.txtusuario["width"] = 25
-        self.txtusuario["font"] = self.fonte
-        self.txtusuario.pack(side=LEFT)
+        self.txtendereço = Entry(self.container6)
+        self.txtendereço["width"] = 25
+        self.txtendereço["font"] = self.fonte
+        self.txtendereço.pack(side=LEFT)
 
-        self.lblsenha= Label(self.container7, text="Senha:",
+        self.lblcontato= Label(self.container7, text="Contato:",
         font=self.fonte, width=10)
-        self.lblsenha.pack(side=LEFT)
+        self.lblcontato.pack(side=LEFT)
 
         self.txtsenha = Entry(self.container7)
         self.txtsenha["width"] = 25
@@ -135,9 +135,9 @@ class Application:
 
         user.nome = self.txtnome.get()
         user.CPF_CNPJ = self.txtCPF_CNPJ.get()
-        user.nascimento = self.txtemail.get()
-        user.usuario = self.txtusuario.get()
-        user.senha = self.txtsenha.get()
+        user.nascimento = self.txtnascimento.get()
+        user.endereço = self.txtendereço.get()
+        user.contato = self.txtcontato.get()
 
         self.lblmsg["text"] = user.insertUser()
 
@@ -145,8 +145,8 @@ class Application:
         self.txtnome.delete(0, END)
         self.txtCPF_CNPJ.delete(0, END)
         self.txtnascimento.delete(0, END)
-        self.txtusuario.delete(0, END)
-        self.txtsenha.delete(0, END)
+        self.txtendereço.delete(0, END)
+        self.txtcontato.delete(0, END)
 
 
 
@@ -156,9 +156,9 @@ class Application:
         user.idusuario = self.txtidusuario.get()
         user.nome = self.txtnome.get()
         user.CPF_CNPJ = self.txtCPF_CNPJ.get()
-        user.nascimento = self.txtemail.get()
-        user.usuario = self.txtusuario.get()
-        user.senha = self.txtsenha.get()
+        user.nascimento = self.txtnascimento.get()
+        user.endereço = self.txtendereço.get()
+        user.contato = self.txtcontato.get()
 
         self.lblmsg["text"] = user.updateUser()
 
@@ -166,8 +166,8 @@ class Application:
         self.txtnome.delete(0, END)
         self.txtCPF_CNPJ.delete(0, END)
         self.txtnascimento.delete(0, END)
-        self.txtusuario.delete(0, END)
-        self.txtsenha.delete(0, END)
+        self.txtendereço.delete(0, END)
+        self.txtcontato.delete(0, END)
 
 
 
@@ -182,8 +182,8 @@ class Application:
         self.txtnome.delete(0, END)
         self.txtCPF_CNPJ.delete(0, END)
         self.txtnascimento.delete(0, END)
-        self.txtusuario.delete(0, END)
-        self.txtsenha.delete(0, END)
+        self.txtendereço.delete(0, END)
+        self.txtcontato.delete(0, END)
 
 
     def buscarUsuario(self):
@@ -197,16 +197,19 @@ class Application:
         self.txtidusuario.insert(INSERT, user.idusuario)
 
         self.txtnome.delete(0, END)
-        self.txtnome.insert(INSERT, user.CPF_CNPJ)
+        self.txtnome.insert(INSERT, user.nome)
 
         self.txtCPF_CNPJ.delete(0, END)
-        self.txtCPF_CNPJ.insert(INSERT,user.nascimento)
+        self.txtCPF_CNPJ.insert(INSERT,user.CPF_CNPJ)
 
         self.txtnascimento.delete(0, END)
-        self.txtnascimento.insert(INSERT, user.endereço)
+        self.txtnascimento.insert(INSERT, user.nascimento)
 
-        self.txtusuario.delete(0, END)
-        self.txtusuario.insert(INSERT, user.contato)
+        self.txtendereço.delete(0, END)
+        self.txtendereço.insert(INSERT, user.endereço)
+
+        self.txtcontato.delete(0, END)
+        self.txtcontato.insert(INSERT, user.contato)
 
 root = Tk()
 Application(root)
